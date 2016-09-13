@@ -1,0 +1,5 @@
+all: sc14classify.o
+sc14classify.o: sc14classify.h sc14classify.c sc14classifycore.c makefile
+	@COMPILE@ -c sc14classify.c
+clean:
+	rm sc14classify.o makefile
