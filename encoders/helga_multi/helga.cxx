@@ -139,7 +139,6 @@ void condition2(stringstream *output, vector<vector<int> > & edge_matrix, int ve
                         if(i != j) {
                                 for (int k = j; k < vertices_count; k++) {
                                         if(i != k && j != k) {
-
                                                 string cnf = "-" + encode(i + 1, j + 1, vertices_count, "s") + " " + "-" + encode(i + 1, k + 1, vertices_count, "s") + " 0";
                                                 *output << cnf << endl;
                                                 (*clauses_count)++;
@@ -161,7 +160,6 @@ void condition3(stringstream *output,  vector<vector<int> > & edge_matrix, int *
                         if (edge_matrix[j][i] == 1 && i != j) {
                                 cnf += to_string(xy_to_satsolve(j+1, i+1, vertices_count, "s")) + " ";
                         }
-
                 }
                 cnf += "0";
                 *output << cnf << endl;
@@ -178,7 +176,6 @@ void condition4(stringstream *output,  vector<vector<int> > & edge_matrix, int *
                         if (i != j && edge_matrix[i][j] == 1) {
                                 for (int k = j; k < vertices_count; k++) {
                                         if (i != k && j != k && edge_matrix[i][k] == 1) {
-
                                                 string cnf = "-" + to_string(xy_to_satsolve(j+1, i+1, vertices_count, "s")) + " " + "-" + to_string(xy_to_satsolve(k+1, i+1, vertices_count, "s"));
                                                 cnf += " 0";
                                                 *output << cnf << endl;
