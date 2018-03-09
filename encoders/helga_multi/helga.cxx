@@ -9,6 +9,7 @@
 #include <iterator>
 #include <sstream>
 #include <stdexcept>
+#include <thread>
 
 #include "../shared/debug.cxx"
 #include "../shared/SatInterface.cxx"
