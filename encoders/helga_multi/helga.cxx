@@ -283,15 +283,16 @@ void condition11(stringstream *output, int *clauses_count, int vertices_count){
 
 int main( int argc, char* argv[] )
 {
-        if ( argc != 3 ) {
+        if ( argc != 4 ) {
                 // argc should be 3 for correct execution
                 print("Error, you need to provide a path to the graph and a command how to use the solver");
-                print("Usage: ./helga.out <graph> <solver_command>");
+                print("Usage: ./helga.out <graph> <tmpfile> <solver_command>");
                 print("Terminating...");
                 exit(1);
         }
         string graph_path = argv[1]; // path to graph
-        const char * solver_command = argv[2]; // command to solver
+	string tmpfile = argv[2];
+        const char * solver_command = argv[3]; // command to solver
         // open graph under given path
         ifstream graph_raw;
         graph_raw.open(graph_path);
@@ -305,7 +306,7 @@ int main( int argc, char* argv[] )
         // output for SAT-solvers (contains generated clauses)
         int clauses_count = 0;
         fstream output;
-        output.open("in.txt", fstream::in | fstream::out | fstream::trunc);
+        output.open(tmpfile, fstream::in | fstream::out | fstream::trunc);
         // add first line as a placeholder for the header (p cnf V E)
         output << "p cnf                                                       " << endl; // we love c++ and OS's in general this Is fucking AWESOME
 
