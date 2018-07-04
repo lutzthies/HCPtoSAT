@@ -1,6 +1,8 @@
 #include <string>
 #include <stdlib.h>
 
+#include <memory>
+
 // run cmd and write it to std::to_string
 // idea by http://stackoverflow.com/questions/478898/how-to-execute-a-command-and-get-output-of-command-within-c-using-posix
 std::string execToString(const char* cmd) {
